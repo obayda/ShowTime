@@ -65,7 +65,7 @@ export default Movie;
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     image: {
         width: 100,
