@@ -6,6 +6,7 @@ import {
 } from "react-native";
 import Movie from '../../components/movie';
 import SearchBar from '../../components/searchBar';
+import { accessToken } from '../../token'
 
 class Movies extends Component {
     state = {
@@ -15,7 +16,7 @@ class Movies extends Component {
     componentDidMount() {
         const { navigation } = this.props;
         const itemId = navigation.getParam('itemId', 'NO-ID');
-        fetch('http://www.omdbapi.com/?s=' + itemId + '&apikey=5818336b')
+        fetch('http://www.omdbapi.com/?s=' + itemId + '&apikey=' + accessToken)
             .then(res => res.json())
             .then(movies => this.setState({ data: movies.Search }))
             .catch(error => { console.log(error) })
