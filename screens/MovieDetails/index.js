@@ -5,6 +5,7 @@ import {
     StyleSheet
 } from "react-native";
 import MovieDetails from '../../components/movieDetails'
+import { accessToken } from '../../token'
 
 class Details extends Component {
     state = {
@@ -20,7 +21,7 @@ class Details extends Component {
     componentDidMount() {
         const { navigation } = this.props;
         const itemId = navigation.getParam('itemId', 'NO-ID');
-        fetch("http://www.omdbapi.com/?i=" + itemId + "&apikey=5818336b")
+        fetch("http://www.omdbapi.com/?i=" + itemId + "&apikey=" + accessToken)
             .then(res => res.json())
             .then(data => this.setState({ data }))
             .catch(err => console.log(err))
